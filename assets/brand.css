@@ -129,6 +129,19 @@ section{padding:58px 0;}
 #contact .details{font-family:"IBM Plex Mono",monospace;font-size:13px;color:#b9b4a4;line-height:2;text-align:right;}
 #contact .details a{color:var(--paper);border-bottom:1px solid var(--copper);}
 #contact .details a:hover{color:var(--copper);}
+#contact .contact-col{display:flex;flex-direction:column;align-items:flex-end;gap:14px;}
+
+.whatsapp-btn{
+  font-family:"IBM Plex Mono",monospace;font-size:13px;font-weight:600;letter-spacing:.3px;
+  background:var(--teal);color:var(--paper);padding:11px 18px;border:2px solid var(--teal);
+  display:inline-flex;align-items:center;gap:9px;transition:.15s;
+}
+.whatsapp-btn:hover{background:var(--paper);color:var(--teal);border-color:var(--paper);}
+.whatsapp-btn svg{width:16px;height:16px;flex-shrink:0;}
+
+@media (max-width:860px){
+  #contact .contact-col{align-items:flex-start;}
+}
 
 footer{
   background:var(--graphite);color:#7a7d72;
