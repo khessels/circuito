@@ -1,221 +1,252 @@
 <!DOCTYPE html>
-<html lang="es" data-lang="es">
+<html lang="es">
 <head>
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-CTLJPNHBLH"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-CTLJPNHBLH');
+</script>
 <meta charset="UTF-8">
-<title>CIRCUITO — Electronics, IoT/IIoT &amp; PCB design, Santa Ana, Costa Rica</title>
-<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="icon" type="image/png" sizes="32x32" href="favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="favicon-16x16.png">
+<link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon.png">
+<link rel="shortcut icon" href="favicon.ico">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Electrónica Santa Ana — Diseño de Electrónica IoT, PCB y Firmware para Empresas | Costa Rica</title>
+<meta name="description" content="Diseñamos electrónica a la medida para tu empresa: dispositivos IoT/IIoT, placas PCB, circuitos y firmware, del prototipo a la producción. Santa Ana, Costa Rica.">
+<meta name="keywords" content="diseño electrónico para empresas Costa Rica, diseño de PCB, diseño IoT industrial, firmware a medida, ingeniería electrónica Santa Ana">
+<meta name="author" content="Electrónica Santa Ana">
+<meta name="robots" content="index, follow">
+<link rel="canonical" href="https://electronics.kees-hessels.workers.dev/">
+
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://electronics.kees-hessels.workers.dev/">
+<meta property="og:title" content="Electrónica Santa Ana — Diseño de Electrónica IoT, PCB y Firmware para Empresas">
+<meta property="og:description" content="Electrónica a la medida para tu empresa: IoT/IIoT, PCB, circuitos y firmware, del prototipo a la producción.">
+<meta property="og:image" content="https://electronics.kees-hessels.workers.dev/og-image.jpg">
+<meta property="og:locale" content="es_CR">
+
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Electrónica Santa Ana — Diseño de Electrónica IoT, PCB y Firmware">
+<meta name="twitter:description" content="Electrónica a la medida para tu empresa, del prototipo a la producción. Santa Ana, Costa Rica.">
+<meta name="twitter:image" content="https://electronics.kees-hessels.workers.dev/og-image.jpg">
+
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link rel="stylesheet" href="assets/brand.css">
+<link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;700;800&family=IBM+Plex+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "ElectronicsStore",
+  "name": "Electrónica Santa Ana",
+  "description": "Diseño de electrónica IoT/IIoT, PCB, circuitos y firmware a la medida para empresas, del prototipo a la producción.",
+  "url": "https://electronics.kees-hessels.workers.dev/",
+  "email": "kees.hessels@gmail.com",
+  "telephone": "+506-6324-9284",
+  "priceRange": "$$",
+  "address": {
+    "@type": "PostalAddress",
+    "streetAddress": "Santa Ana Centro, a par de la Pops, casa dos altos, portón negro",
+    "addressLocality": "Santa Ana",
+    "addressRegion": "San José",
+    "addressCountry": "CR"
+  },
+  "openingHoursSpecification": {
+    "@type": "OpeningHoursSpecification",
+    "dayOfWeek": ["Monday","Tuesday","Wednesday","Thursday","Friday"],
+    "opens": "08:00",
+    "closes": "17:30"
+  },
+  "areaServed": {
+    "@type": "City",
+    "name": "Santa Ana, Costa Rica"
+  },
+  "sameAs": [
+    "https://wa.me/50663249284"
+  ]
+}
+</script>
+
+<style>
+  :root{
+    --bg:#11161a;
+    --panel:#171f24;
+    --line:#2a353c;
+    --copper:#c17a4a;
+    --copper-bright:#e6a468;
+    --green-bright:#49b98c;
+    --cream:#edeae0;
+    --muted:#8b98a0;
+    --amber:#e8a33d;
+    --mono: 'JetBrains Mono', monospace;
+    --sans: 'IBM Plex Sans', sans-serif;
+  }
+  *{box-sizing:border-box;}
+  html{scroll-behavior:smooth;}
+  @media (prefers-reduced-motion: reduce){
+    html{scroll-behavior:auto;}
+    *{animation-duration:0.001ms !important; animation-iteration-count:1 !important; transition-duration:0.001ms !important;}
+  }
+  body{
+    margin:0; background:var(--bg); color:var(--cream); font-family:var(--sans);
+    line-height:1.55; -webkit-font-smoothing:antialiased;
+  }
+  a{color:inherit;}
+  img,svg{display:block;max-width:100%;}
+  body::before{
+    content:""; position:fixed; inset:0;
+    background-image: radial-gradient(circle, rgba(139,152,160,0.10) 1px, transparent 1px);
+    background-size: 26px 26px; pointer-events:none; z-index:0;
+  }
+  .wrap{max-width:1120px; margin:0 auto; padding:0 28px; position:relative; z-index:1;}
+  .eyebrow{
+    font-family:var(--mono); font-size:12.5px; letter-spacing:0.14em; text-transform:uppercase;
+    color:var(--muted); display:flex; align-items:center; gap:10px;
+  }
+  .eyebrow::before{
+    content:""; width:7px; height:7px; border-radius:50%;
+    background:var(--amber); box-shadow:0 0 8px var(--amber); flex:none;
+  }
+
+  .hero{padding:88px 0 96px;}
+  .hero h1{
+    font-family:var(--mono); font-weight:800; color:var(--copper-bright);
+    font-size:clamp(32px, 5.6vw, 58px); line-height:1.1; margin:22px 0 0; letter-spacing:-0.01em;
+  }
+  .hero p.lede{font-size:17px; color:var(--muted); max-width:600px; margin:22px 0 36px;}
+  .cta-row{display:flex; gap:16px; flex-wrap:wrap;}
+  .btn{
+    font-family:var(--mono); font-size:13.5px; letter-spacing:0.03em; padding:14px 22px;
+    text-decoration:none; display:inline-flex; align-items:center; gap:10px; border-radius:3px;
+    border:1px solid transparent; transition:transform .15s ease, background .15s ease;
+  }
+  .btn:focus-visible{outline:2px solid var(--amber); outline-offset:3px;}
+  .btn-copper{background:var(--copper); color:#241505; border-color:#d68d5e;}
+  .btn-copper:hover{background:#cf8a57; transform:translateY(-1px);}
+  .btn-ghost{background:transparent; color:var(--copper-bright); border-color:var(--copper);}
+  .btn-ghost:hover{background:rgba(193,122,74,0.12); transform:translateY(-1px);}
+
+  section{padding:84px 0; border-top:1px solid var(--line); scroll-margin-top:84px;}
+  .section-head{max-width:640px; margin-bottom:44px;}
+  .section-head h2{font-family:var(--mono); font-size:clamp(24px,3.4vw,34px); margin:14px 0 12px; font-weight:700;}
+  .section-head p{color:var(--muted); font-size:15.5px; margin:0;}
+
+  .grid{display:grid; grid-template-columns:repeat(auto-fit, minmax(230px,1fr)); gap:18px;}
+  .card{
+    background:var(--panel); border:1px solid var(--line); border-radius:6px;
+    padding:26px 22px; transition:transform .18s ease, border-color .18s ease;
+  }
+  .card:hover{transform:translateY(-3px); border-color:var(--copper-bright);}
+  .card .icon{width:34px; height:34px; margin-bottom:16px; color:var(--copper-bright);}
+  .card h3{font-family:var(--mono); font-size:15.5px; margin:0 0 8px; font-weight:600;}
+  .card p{font-size:14px; color:var(--muted); margin:0;}
+
+  .steps{display:grid; grid-template-columns:repeat(auto-fit,minmax(220px,1fr)); gap:0;}
+  .step{padding:26px 22px 26px 0; border-right:1px solid var(--line);}
+  .step:last-child{border-right:none;}
+  .step .num{font-family:var(--mono); font-size:13px; color:var(--muted); letter-spacing:0.1em;}
+  .step h3{font-family:var(--mono); font-size:16px; margin:10px 0 8px;}
+  .step p{font-size:14px; color:var(--muted); margin:0;}
+  @media(max-width:760px){ .step{border-right:none; border-bottom:1px solid var(--line); padding:22px 0;} }
+
+  .trust{display:grid; grid-template-columns:repeat(auto-fit,minmax(200px,1fr)); gap:24px;}
+  .trust .item{border-left:2px solid var(--amber); padding-left:16px;}
+  .trust .item b{display:block; font-family:var(--mono); font-size:15px; margin-bottom:4px;}
+  .trust .item span{font-size:13.5px; color:var(--muted);}
+</style>
+<link rel="stylesheet" href="site-shared.css">
 </head>
-<body>
+<body data-page="inicio">
+<script src="nav.js"></script>
 
-<header>
-  <nav>
-    <a href="#top" class="wordmark">CIRCUITO<span class="dot">.</span></a>
-    <div class="navlinks">
-      <a href="#build" class="lang-es">Qué hacemos</a><a href="#build" class="lang-en">What we build</a>
-      <a href="#work" class="lang-es">Trabajo reciente</a><a href="#work" class="lang-en">Recent work</a>
-      <a href="#why" class="lang-es">Por qué local</a><a href="#why" class="lang-en">Why local</a>
-      <a href="#contact" class="cta"><span class="lang-es">Hablemos de tu proyecto</span><span class="lang-en">Talk about a project</span></a>
-      <button class="lang-toggle" aria-label="Switch language">EN</button>
+<main class="wrap">
+
+  <section class="hero" style="border-top:none; padding-top:64px;">
+    <p class="eyebrow">Ingeniería electrónica — Santa Ana, Costa Rica</p>
+    <h1>Electrónica a la medida para tu empresa.</h1>
+    <p class="lede">Diseñamos dispositivos IoT/IIoT, placas PCB, circuitos y firmware — del primer boceto a un producto que tu equipo puede fabricar.</p>
+    <div class="cta-row">
+      <a class="btn btn-copper" href="https://wa.me/50663249284?text=Hola%2C%20quiero%20cotizar%20un%20proyecto%20de%20diseño." target="_blank" rel="noopener">Cotizar un proyecto →</a>
+      <a class="btn btn-ghost" href="proyectos.html">Ver proyectos →</a>
     </div>
-  </nav>
-</header>
+  </section>
 
-<main id="top">
-
-  <section class="hero">
-    <div class="wrap hero-inner">
-      <div class="hero-copy">
-        <div class="eyebrow">SANTA ANA, COSTA RICA</div>
-        <h1>
-          <span class="lang-es">El banco de trabajo detrás de tu stack IoT.</span>
-          <span class="lang-en">The hardware bench behind your IoT stack.</span>
-        </h1>
-        <p>
-          <span class="lang-es">Diseñamos y construimos la electrónica sobre la que corre tu plataforma — front-ends de sensores, PCBs a medida y firmware — para proyectos IoT e IIoT, en lotes pequeños, en horario de Costa Rica, sin MOQ ni tiempos de espera del exterior.</span>
-          <span class="lang-en">We design and build the electronics your platform sits on top of — sensor front ends, custom PCBs, and firmware — for IoT and IIoT projects, in small batches, on Costa Rican time, with no overseas MOQ or lead time.</span>
-        </p>
-        <div class="hero-actions">
-          <a class="btn" href="mailto:kees.hessels@gmail.com?subject=Consulta de proyecto">
-            <span class="lang-es">Hablemos de tu proyecto</span><span class="lang-en">Talk about a project</span>
-          </a>
-          <a class="btn ghost" href="#build">
-            <span class="lang-es">Ver qué hacemos ↓</span><span class="lang-en">See what we build ↓</span>
-          </a>
-        </div>
+  <section id="servicios">
+    <div class="section-head">
+      <p class="eyebrow">Qué hacemos</p>
+      <h2>Diseño electrónico, de punta a punta</h2>
+      <p>Cada proyecto pasa por las mismas cuatro disciplinas, ajustadas a lo que tu producto necesita.</p>
+    </div>
+    <div class="grid">
+      <div class="card">
+        <svg class="icon" viewBox="0 0 40 40" fill="none" stroke="currentColor" stroke-width="2"><circle cx="20" cy="12" r="4"/><line x1="20" y1="16" x2="20" y2="24"/><line x1="8" y1="32" x2="32" y2="32"/><line x1="20" y1="24" x2="8" y2="32"/><line x1="20" y1="24" x2="32" y2="32"/><circle cx="8" cy="32" r="3"/><circle cx="32" cy="32" r="3"/></svg>
+        <h3>Diseño IoT / IIoT</h3>
+        <p>Sensores, conectividad inalámbrica y monitoreo remoto, para producto de consumo o entorno industrial.</p>
       </div>
-      <div class="hero-diagram">
-        <svg viewBox="0 0 560 160" xmlns="http://www.w3.org/2000/svg">
-          <path id="trace" d="M20 80 L540 80" stroke="#c8c1a8" stroke-width="1.5" stroke-dasharray="3,4" fill="none"/>
-          <circle class="pulse" r="4.5" style="offset-path:path('M20 80 L540 80');"></circle>
-
-          <rect x="20" y="55" width="76" height="52" fill="none" stroke="#3d6a63" stroke-width="2"/>
-          <text x="58" y="78" font-size="9.5" fill="#20242a" text-anchor="middle" font-family="IBM Plex Mono, monospace">SENSOR /</text>
-          <text x="58" y="90" font-size="9.5" fill="#20242a" text-anchor="middle" font-family="IBM Plex Mono, monospace">ANTENNA</text>
-
-          <path d="M96 80 L134 80" stroke="#20242a" stroke-width="1.5"/>
-          <polygon points="134,80 126,75.5 126,84.5" fill="#20242a"/>
-
-          <rect x="136" y="43" width="106" height="76" fill="none" stroke="#ab6234" stroke-width="2"/>
-          <text x="189" y="72" font-size="9.5" fill="#20242a" text-anchor="middle" font-family="IBM Plex Mono, monospace">BANDPASS +</text>
-          <text x="189" y="85" font-size="9.5" fill="#20242a" text-anchor="middle" font-family="IBM Plex Mono, monospace">RECTIFIER</text>
-          <text x="189" y="102" font-size="7.8" fill="#6f7568" text-anchor="middle" font-family="IBM Plex Mono, monospace">analog front end</text>
-
-          <path d="M242 80 L280 80" stroke="#20242a" stroke-width="1.5"/>
-          <polygon points="280,80 272,75.5 272,84.5" fill="#20242a"/>
-
-          <rect x="282" y="43" width="106" height="76" fill="none" stroke="#3d6a63" stroke-width="2"/>
-          <text x="335" y="72" font-size="9.5" fill="#20242a" text-anchor="middle" font-family="IBM Plex Mono, monospace">MCU + ADC</text>
-          <text x="335" y="85" font-size="9.5" fill="#20242a" text-anchor="middle" font-family="IBM Plex Mono, monospace">calibration</text>
-          <text x="335" y="102" font-size="7.8" fill="#6f7568" text-anchor="middle" font-family="IBM Plex Mono, monospace">ESP32 / STM32 firmware</text>
-
-          <path d="M388 80 L426 80" stroke="#20242a" stroke-width="1.5"/>
-          <polygon points="426,80 418,75.5 418,84.5" fill="#20242a"/>
-
-          <rect x="428" y="55" width="112" height="52" fill="none" stroke="#ab6234" stroke-width="2" stroke-dasharray="4,3"/>
-          <text x="484" y="78" font-size="9.5" fill="#20242a" text-anchor="middle" font-family="IBM Plex Mono, monospace">YOUR PLATFORM</text>
-          <text x="484" y="92" font-size="7.8" fill="#6f7568" text-anchor="middle" font-family="IBM Plex Mono, monospace">integration layer</text>
-
-          <text x="58" y="135" font-size="8.5" fill="#6f7568" text-anchor="middle" font-family="IBM Plex Mono, monospace">field</text>
-          <text x="189" y="135" font-size="8.5" fill="#6f7568" text-anchor="middle" font-family="IBM Plex Mono, monospace">CIRCUITO builds this</text>
-          <text x="335" y="135" font-size="8.5" fill="#6f7568" text-anchor="middle" font-family="IBM Plex Mono, monospace">and this</text>
-          <text x="484" y="135" font-size="8.5" fill="#6f7568" text-anchor="middle" font-family="IBM Plex Mono, monospace">you already have this</text>
-        </svg>
+      <div class="card">
+        <svg class="icon" viewBox="0 0 40 40" fill="none" stroke="currentColor" stroke-width="2"><rect x="10" y="10" width="20" height="20" rx="2"/><rect x="16" y="16" width="8" height="8"/><line x1="10" y1="16" x2="4" y2="16"/><line x1="10" y1="24" x2="4" y2="24"/><line x1="30" y1="16" x2="36" y2="16"/><line x1="30" y1="24" x2="36" y2="24"/><line x1="16" y1="10" x2="16" y2="4"/><line x1="24" y1="10" x2="24" y2="4"/></svg>
+        <h3>PCB y circuitos</h3>
+        <p>Esquemático, ruteo de capas y archivos listos para fabricación en serie.</p>
+      </div>
+      <div class="card">
+        <svg class="icon" viewBox="0 0 40 40" fill="none" stroke="currentColor" stroke-width="2"><rect x="8" y="6" width="24" height="28" rx="2"/><line x1="13" y1="13" x2="27" y2="13"/><line x1="13" y1="19" x2="27" y2="19"/><line x1="13" y1="25" x2="21" y2="25"/></svg>
+        <h3>Firmware</h3>
+        <p>Bare metal C, Arduino o MicroPython para ESP32, STM32F y ATmega.</p>
+      </div>
+      <div class="card">
+        <svg class="icon" viewBox="0 0 40 40" fill="none" stroke="currentColor" stroke-width="2"><path d="M15 5 L15 18 L8 32 A5 5 0 0 0 13 37 L27 37 A5 5 0 0 0 32 32 L25 18 L25 5"/><line x1="13" y1="5" x2="27" y2="5"/><line x1="12" y1="27" x2="28" y2="27"/></svg>
+        <h3>Prototipado</h3>
+        <p>Un dispositivo físico y funcional para validar antes de producir en volumen.</p>
       </div>
     </div>
   </section>
 
-  <section id="build">
-    <div class="wrap">
-      <div class="section-head">
-        <span class="tag"><span class="lang-es">Qué hacemos</span><span class="lang-en">What we build</span></span>
-        <span class="rule"></span>
+  <section id="proceso">
+    <div class="section-head">
+      <p class="eyebrow">Cómo trabajamos</p>
+      <h2>De la idea a algo que tu empresa puede fabricar</h2>
+      <p>Un proceso ordenado, pensado para equipos que necesitan resultados predecibles.</p>
+    </div>
+    <div class="steps">
+      <div class="step">
+        <div class="num">01 — BRIEF</div>
+        <h3>Entendemos el problema</h3>
+        <p>Qué debe hacer el producto y en qué condiciones va a operar.</p>
       </div>
-      <div class="cap-grid">
-        <div class="cap-item">
-          <div class="cap-marker"></div>
-          <div>
-            <b><span class="lang-es">Hardware IoT e IIoT</span><span class="lang-en">IoT &amp; IIoT hardware</span></b>
-            <p><span class="lang-es">Desde un solo nodo sensor hasta un sistema de monitoreo industrial — hardware construido para hablar con tu plataforma.</span><span class="lang-en">From a single sensor node to an industrial monitoring rig — hardware built to talk to your platform.</span></p>
-          </div>
-        </div>
-        <div class="cap-item">
-          <div class="cap-marker"></div>
-          <div>
-            <b><span class="lang-es">Diseño de esquemático y PCB</span><span class="lang-en">PCB &amp; schematic design</span></b>
-            <p><span class="lang-es">Captura de esquemático y layout de placa para sensado, control o potencia — pensado para prototipos y tandas pequeñas, no producción masiva.</span><span class="lang-en">Schematic capture and board layout for sensing, control, or power — sized for prototype and low-volume runs, not mass production.</span></p>
-          </div>
-        </div>
-        <div class="cap-item">
-          <div class="cap-marker"></div>
-          <div>
-            <b><span class="lang-es">Desarrollo de prototipos</span><span class="lang-en">Prototype development</span></b>
-            <p><span class="lang-es">Desde protoboard hasta un prototipo funcional, con puesta en marcha y validación en el camino.</span><span class="lang-en">From breadboard to working prototype, with bring-up and validation along the way.</span></p>
-          </div>
-        </div>
-        <div class="cap-item">
-          <div class="cap-marker"></div>
-          <div>
-            <b><span class="lang-es">Front-end analógico y acondicionamiento de señal</span><span class="lang-en">Analog front-end &amp; signal conditioning</span></b>
-            <p><span class="lang-es">Etapas de filtrado, rectificadores de precisión e interfaz de sensores para señales de RF, EMF y otras señales analógicas de bajo nivel.</span><span class="lang-en">Filter stages, precision rectifiers, and sensor interfacing for RF, EMF, and other low-level analog signals.</span></p>
-          </div>
-        </div>
-        <div class="cap-item">
-          <div class="cap-marker"></div>
-          <div>
-            <b><span class="lang-es">Firmware embebido</span><span class="lang-en">Embedded firmware</span></b>
-            <p><span class="lang-es">Trabajo en ESP32/Arduino, además de C a nivel de registro (bare-metal) en STM32 cuando necesitás control total del hardware.</span><span class="lang-en">ESP32 / Arduino-class work, plus bare-metal, register-level C on STM32 when you need full control of the hardware.</span></p>
-          </div>
-        </div>
-        <div class="cap-item">
-          <div class="cap-marker"></div>
-          <div>
-            <b><span class="lang-es">Calibración y herramientas de prueba</span><span class="lang-en">Calibration &amp; test tooling</span></b>
-            <p><span class="lang-es">Scripts y bancos de prueba (PyVISA/PySerial) para caracterizar y corregir no linealidades del ADC, validando las placas antes de entregarlas.</span><span class="lang-en">Custom scripts and jigs (PyVISA/PySerial) to characterize and correct ADC nonlinearity and validate boards before they ship.</span></p>
-          </div>
-        </div>
+      <div class="step">
+        <div class="num">02 — PROPUESTA</div>
+        <h3>Alcance y cotización</h3>
+        <p>Propuesta técnica por escrito, con tiempos y entregables definidos.</p>
+      </div>
+      <div class="step">
+        <div class="num">03 — DISEÑO</div>
+        <h3>Circuito, placa y firmware</h3>
+        <p>Desarrollamos las tres partes en conjunto, no por separado.</p>
+      </div>
+      <div class="step">
+        <div class="num">04 — ENTREGA</div>
+        <h3>Prototipo validado</h3>
+        <p>Un dispositivo probado, con los archivos listos para producir.</p>
       </div>
     </div>
   </section>
 
-  <section id="work">
-    <div class="wrap">
-      <div class="section-head">
-        <span class="tag"><span class="lang-es">Trabajo reciente de banco</span><span class="lang-en">Recent bench work</span></span>
-        <span class="rule"></span>
-      </div>
-      <div class="work-grid">
-        <div class="proof">
-          <span class="k"><span class="lang-es">Sensado RF / EMF</span><span class="lang-en">RF / EMF sensing</span></span>
-          <b><span class="lang-es">Sensor de EMF/RF de largo alcance</span><span class="lang-en">Long-range EMF/RF sensor</span></b>
-          <p><span class="lang-es">Front-end analógico a medida — filtro pasabanda, rectificador de precisión, fuente de bajo ruido — conectado a un ADC de ESP32, ajustado para un rango de detección de unos 200&nbsp;m.</span><span class="lang-en">Custom analog front end — bandpass filter, precision rectifier, low-noise power supply — driving an ESP32 ADC, tuned for roughly 200&nbsp;m detection range.</span></p>
-        </div>
-        <div class="proof">
-          <span class="k"><span class="lang-es">Herramientas de prueba</span><span class="lang-en">Test tooling</span></span>
-          <b><span class="lang-es">Sistema de calibración de ADC</span><span class="lang-en">ADC calibration system</span></b>
-          <p><span class="lang-es">Herramientas en PyVISA/PySerial junto con firmware complementario para caracterizar y corregir la no linealidad del ADC mediante ajuste de curvas — construido para validar placas, no solo diseñarlas.</span><span class="lang-en">PyVISA/PySerial tooling paired with companion firmware to characterize and correct ADC nonlinearity via curve fitting — built to validate boards, not just design them.</span></p>
-        </div>
-        <div class="proof">
-          <span class="k"><span class="lang-es">Firmware embebido</span><span class="lang-en">Embedded firmware</span></span>
-          <b><span class="lang-es">Firmware bare-metal para STM32F405</span><span class="lang-en">Bare-metal STM32F405 firmware</span></b>
-          <p><span class="lang-es">C a nivel de registro/HAL, incluyendo un flujo de trabajo que genera el código de inicialización de periféricos directamente desde esquemáticos de KiCad.</span><span class="lang-en">Register/HAL-level C, including a workflow that scaffolds peripheral init code directly from KiCad schematics.</span></p>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <section id="why">
-    <div class="wrap">
-      <div class="section-head">
-        <span class="tag"><span class="lang-es">Por qué un taller local</span><span class="lang-en">Why work with a local shop</span></span>
-        <span class="rule"></span>
-      </div>
-      <div class="why-grid">
-        <div class="why-item">
-          <b><span class="lang-es">Sin MOQ del exterior</span><span class="lang-en">No overseas MOQ</span></b>
-          <p><span class="lang-es">Los prototipos y tandas cortas son el trabajo normal acá, no una excepción.</span><span class="lang-en">Prototypes and short runs are the normal job here, not a special case.</span></p>
-        </div>
-        <div class="why-item">
-          <b><span class="lang-es">Mismo huso horario</span><span class="lang-en">Same time zone</span></b>
-          <p><span class="lang-es">Vuelta rápida, y visitas en persona cuando una placa necesita otro par de ojos.</span><span class="lang-en">Fast turnaround, and in-person visits when a board needs a second pair of eyes.</span></p>
-        </div>
-        <div class="why-item">
-          <b><span class="lang-es">Un solo socio</span><span class="lang-en">One partner</span></b>
-          <p><span class="lang-es">Esquemático, layout, firmware y puesta en marcha — sin coordinar proveedores separados.</span><span class="lang-en">Schematic, layout, firmware, and bring-up — instead of coordinating separate vendors.</span></p>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <section id="contact">
-    <div class="wrap">
-      <h2>
-        <span class="lang-es">¿Tenés un vacío de hardware en tu proyecto IoT?</span>
-        <span class="lang-en">Have a hardware gap in your IoT project?</span>
-      </h2>
-      <div class="contact-col">
-        <a class="whatsapp-btn" href="https://wa.me/50663249284" target="_blank" rel="noopener">
-          <svg viewBox="0 0 24 24" fill="currentColor" xmlns="http://www.w3.org/2000/svg"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.472-.148-.67.15-.198.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.71.306 1.263.489 1.694.626.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/><path d="M12.004 2c-5.514 0-9.997 4.483-9.997 9.997 0 1.762.462 3.48 1.34 4.997L2 22l5.13-1.346a9.958 9.958 0 0 0 4.874 1.242h.004c5.514 0 9.996-4.483 9.996-9.997C21.995 6.484 17.518 2 12.004 2zm5.836 15.827a8.283 8.283 0 0 1-4.833 1.548h-.003a8.301 8.301 0 0 1-4.23-1.157l-.303-.18-3.045.799.813-2.968-.198-.304a8.264 8.264 0 0 1-1.267-4.415c0-4.585 3.732-8.316 8.319-8.316a8.28 8.28 0 0 1 5.883 2.436 8.27 8.27 0 0 1 2.434 5.883c0 4.585-3.731 8.316-8.317 8.316z"/></svg>
-          <span class="lang-es">Escribinos por WhatsApp</span><span class="lang-en">Message us on WhatsApp</span>
-        </a>
-        <div class="details">
-          Kees Hessels<br>
-          <a href="mailto:kees.hessels@gmail.com">kees.hessels@gmail.com</a><br>
-          Santa Ana, Costa Rica
-        </div>
-      </div>
+  <section id="confianza">
+    <div class="trust">
+      <div class="item"><b>Un solo interlocutor</b><span>El mismo ingeniero del brief a la entrega final.</span></div>
+      <div class="item"><b>Documentación completa</b><span>Esquemáticos, archivos de fabricación y código entregados junto al prototipo.</span></div>
+      <div class="item"><b>Diseño integrado</b><span>Circuito, placa, firmware y carcasa pensados como un solo sistema.</span></div>
+      <div class="item"><b>Escala real</b><span>De un prototipo a un primer lote de producción.</span></div>
     </div>
   </section>
 
 </main>
 
-<footer>
-  <span class="lang-es">CIRCUITO — ELECTRÓNICA, IoT/IIoT Y DISEÑO DE PCB — SANTA ANA, COSTA RICA</span>
-  <span class="lang-en">CIRCUITO — ELECTRONICS, IoT/IIoT &amp; PCB DESIGN — SANTA ANA, COSTA RICA</span>
-</footer>
-
-<script src="assets/i18n.js"></script>
+<script src="footer.js"></script>
 </body>
 </html>
