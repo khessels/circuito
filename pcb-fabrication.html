@@ -1,0 +1,274 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-CTLJPNHBLH"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-CTLJPNHBLH');
+</script>
+<meta charset="UTF-8">
+<link rel="icon" type="image/svg+xml" href="favicon.svg">
+<link rel="icon" type="image/png" sizes="32x32" href="favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="favicon-16x16.png">
+<link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon.png">
+<link rel="shortcut icon" href="favicon.ico">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Fabricación de PCB | Ruteo y Archivos de Manufactura — Circuito, Santa Ana CR</title>
+<meta name="description" content="Ruteo de capas, revisión de reglas de diseño y preparación de archivos Gerber para fabricar tu placa sin errores costosos. Santa Ana, Costa Rica.">
+<meta name="keywords" content="fabricación de PCB Costa Rica, ruteo de placas, archivos Gerber, DFM, manufactura electrónica Santa Ana">
+<meta name="author" content="Circuito">
+<meta name="robots" content="index, follow">
+<link rel="canonical" href="https://circuito.cr/pcb-fabrication.html">
+
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://circuito.cr/pcb-fabrication.html">
+<meta property="og:title" content="Fabricación de PCB | Circuito">
+<meta property="og:description" content="Ruteo de capas, revisión de reglas de diseño y archivos Gerber listos para fabricar. Santa Ana, Costa Rica.">
+<meta property="og:image" content="https://circuito.cr/og-image.jpg">
+<meta property="og:locale" content="es_CR">
+
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Fabricación de PCB | Circuito">
+<meta name="twitter:description" content="Ruteo de capas, revisión de reglas de diseño y archivos Gerber listos para fabricar.">
+<meta name="twitter:image" content="https://circuito.cr/og-image.jpg">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;700;800&family=IBM+Plex+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Service",
+  "serviceType": "Fabricación y ruteo de placas PCB",
+  "provider": {
+    "@type": "ElectronicsStore",
+    "name": "Circuito",
+    "telephone": "+506-6324-9284",
+    "email": "kees.hessels@gmail.com",
+    "address": {
+      "@type": "PostalAddress",
+      "streetAddress": "Santa Ana Centro, a par de la Pops, casa dos altos, portón negro",
+      "addressLocality": "Santa Ana",
+      "addressRegion": "San José",
+      "addressCountry": "CR"
+    }
+  },
+  "areaServed": {
+    "@type": "City",
+    "name": "Santa Ana, Costa Rica"
+  },
+  "description": "Ruteo de capas, revisión de reglas de diseño (DFM) y preparación de archivos de fabricación para placas PCB."
+}
+</script>
+
+<style>
+  :root{
+    --bg:#11161a;
+    --panel:#171f24;
+    --line:#2a353c;
+    --copper:#c17a4a;
+    --copper-bright:#e6a468;
+    --green-bright:#49b98c;
+    --cream:#edeae0;
+    --muted:#8b98a0;
+    --amber:#e8a33d;
+    --mono: 'JetBrains Mono', monospace;
+    --sans: 'IBM Plex Sans', sans-serif;
+  }
+  *{box-sizing:border-box;}
+  html{scroll-behavior:smooth;}
+  @media (prefers-reduced-motion: reduce){
+    html{scroll-behavior:auto;}
+    *{animation-duration:0.001ms !important; animation-iteration-count:1 !important; transition-duration:0.001ms !important;}
+  }
+  body{
+    margin:0; background:var(--bg); color:var(--cream); font-family:var(--sans);
+    line-height:1.55; -webkit-font-smoothing:antialiased;
+  }
+  a{color:inherit;}
+  img,svg{display:block;max-width:100%;}
+  body::before{
+    content:""; position:fixed; inset:0;
+    background-image: radial-gradient(circle, rgba(139,152,160,0.10) 1px, transparent 1px);
+    background-size: 26px 26px; pointer-events:none; z-index:0;
+  }
+  .wrap{max-width:1120px; margin:0 auto; padding:0 28px; position:relative; z-index:1;}
+  .eyebrow{
+    font-family:var(--mono); font-size:12.5px; letter-spacing:0.14em; text-transform:uppercase;
+    color:var(--muted); display:flex; align-items:center; gap:10px;
+  }
+  .eyebrow::before{
+    content:""; width:7px; height:7px; border-radius:50%;
+    background:var(--amber); box-shadow:0 0 8px var(--amber); flex:none;
+  }
+
+  .hero{padding:72px 28px 80px;}
+  .hero h1{
+    font-family:var(--mono); font-weight:800; color:var(--copper-bright);
+    font-size:clamp(30px,5vw,50px); line-height:1.1; margin:20px 0 0; letter-spacing:-0.01em;
+  }
+  .hero p.lede{font-size:17px; color:var(--muted); max-width:600px; margin:22px 0 36px;}
+  .cta-row{display:flex; gap:16px; flex-wrap:wrap;}
+  .btn{
+    font-family:var(--mono); font-size:13.5px; letter-spacing:0.03em; padding:14px 22px;
+    text-decoration:none; display:inline-flex; align-items:center; gap:10px; border-radius:3px;
+    border:1px solid transparent; transition:transform .15s ease, background .15s ease;
+  }
+  .btn:focus-visible{outline:2px solid var(--amber); outline-offset:3px;}
+  .btn-copper{background:var(--copper); color:#241505; border-color:#d68d5e;}
+  .btn-copper:hover{background:#cf8a57; transform:translateY(-1px);}
+  .btn-ghost{background:transparent; color:var(--copper-bright); border-color:var(--copper);}
+  .btn-ghost:hover{background:rgba(193,122,74,0.12); transform:translateY(-1px);}
+
+  section{padding:80px 0; border-top:1px solid var(--line); scroll-margin-top:84px;}
+  .section-head{max-width:640px; margin-bottom:44px;}
+  .section-head h2{font-family:var(--mono); font-size:clamp(24px,3.4vw,34px); margin:14px 0 12px; font-weight:700;}
+  .section-head p{color:var(--muted); font-size:15.5px; margin:0;}
+
+  .grid{display:grid; grid-template-columns:repeat(auto-fit, minmax(230px,1fr)); gap:18px;}
+  .card{
+    background:var(--panel); border:1px solid var(--line); border-radius:6px; padding:26px 22px;
+    transition:transform .18s ease, border-color .18s ease;
+  }
+  .card:hover{transform:translateY(-3px); border-color:var(--copper-bright);}
+  .card .icon{width:36px; height:36px; margin-bottom:16px; color:var(--copper-bright);}
+  .card h3{font-family:var(--mono); font-size:16px; margin:0 0 8px; font-weight:600;}
+  .card p{font-size:14px; color:var(--muted); margin:0;}
+
+  .tag{
+    display:inline-block; font-family:var(--mono); font-size:11.5px; color:var(--copper-bright);
+    border:1px solid var(--copper); border-radius:20px; padding:4px 12px; margin:0 8px 8px 0;
+  }
+
+  .steps{display:grid; grid-template-columns:repeat(auto-fit,minmax(220px,1fr)); gap:0;}
+  .step{padding:26px 22px 26px 0; border-right:1px solid var(--line);}
+  .step:last-child{border-right:none;}
+  .step .num{font-family:var(--mono); font-size:13px; color:var(--muted); letter-spacing:0.1em;}
+  .step h3{font-family:var(--mono); font-size:16px; margin:10px 0 8px;}
+  .step p{font-size:14px; color:var(--muted); margin:0;}
+  @media(max-width:760px){ .step{border-right:none; border-bottom:1px solid var(--line); padding:22px 0;} }
+</style>
+<link rel="stylesheet" href="site-shared.css">
+</head>
+<body data-page="pcb-fabrication">
+<script src="nav.js"></script>
+
+<main class="wrap">
+
+  <section class="hero" style="border-top:none; padding-top:56px;">
+    <p class="breadcrumb"><a href="index.html">Circuito</a> / Fabricación de PCB</p>
+    <p class="eyebrow" style="margin-top:18px;">Capacidad de diseño — Santa Ana, Costa Rica</p>
+    <h1>Del esquemático a una placa lista para fabricar, sin sorpresas.</h1>
+    <p class="lede">Ruteo de capas, verificación de reglas de diseño y archivos de fabricación completos, para que tu placa salga bien desde el primer lote.</p>
+    <div class="cta-row">
+      <a class="btn btn-copper" href="https://wa.me/50663249284?text=Hola%2C%20quiero%20cotizar%20la%20fabricación%20de%20una%20placa%20PCB." target="_blank" rel="noopener">Cotizar por WhatsApp →</a>
+      <a class="btn btn-ghost" href="contacto.html">Ver formulario</a>
+    </div>
+  </section>
+
+  <section id="ruteo">
+    <div class="section-head">
+      <p class="eyebrow">01 — Ruteo</p>
+      <h2>De componentes a pistas de cobre</h2>
+      <p>Ubicamos y conectamos cada componente pensando en señal, calor y espacio disponible.</p>
+    </div>
+    <div class="grid">
+      <div class="card">
+        <svg class="icon" viewBox="0 0 40 40" fill="none" stroke="currentColor" stroke-width="2"><rect x="10" y="10" width="20" height="20" rx="2"/><rect x="16" y="16" width="8" height="8"/><line x1="10" y1="16" x2="4" y2="16"/><line x1="10" y1="24" x2="4" y2="24"/><line x1="30" y1="16" x2="36" y2="16"/><line x1="30" y1="24" x2="36" y2="24"/></svg>
+        <h3>Ruteo de capas</h3>
+        <p>Placas de una o varias capas, según la complejidad y densidad del circuito.</p>
+      </div>
+      <div class="card">
+        <svg class="icon" viewBox="0 0 40 40" fill="none" stroke="currentColor" stroke-width="2"><rect x="6" y="10" width="28" height="20" rx="2"/><line x1="14" y1="30" x2="14" y2="34"/><line x1="26" y1="30" x2="26" y2="34"/><line x1="12" y1="16" x2="20" y2="16"/><line x1="12" y1="22" x2="24" y2="22"/></svg>
+        <h3>Planos de alimentación y tierra</h3>
+        <p>Distribución de energía pensada para minimizar ruido e interferencia.</p>
+      </div>
+      <div class="card">
+        <svg class="icon" viewBox="0 0 40 40" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 4 L34 12 L34 28 L20 36 L6 28 L6 12 Z"/><line x1="20" y1="4" x2="20" y2="36"/></svg>
+        <h3>Huella de componentes</h3>
+        <p>Footprints verificados contra la hoja de datos de cada componente.</p>
+      </div>
+    </div>
+  </section>
+
+  <section id="dfm">
+    <div class="section-head">
+      <p class="eyebrow">02 — Revisión antes de fabricar (DFM)</p>
+      <h2>Diseñado para poderse fabricar</h2>
+      <p>Verificamos que el diseño sea compatible con el proceso de fabricación antes de enviarlo a producción.</p>
+    </div>
+    <div class="grid">
+      <div class="card">
+        <svg class="icon" viewBox="0 0 40 40" fill="none" stroke="currentColor" stroke-width="2"><path d="M8 20 L16 12 L16 16 L28 16 L28 24 L16 24 L16 28 Z"/></svg>
+        <h3>Reglas de diseño</h3>
+        <p>Verificación de anchos de pista, separación mínima y tolerancias del fabricante.</p>
+      </div>
+      <div class="card">
+        <svg class="icon" viewBox="0 0 40 40" fill="none" stroke="currentColor" stroke-width="2"><circle cx="10" cy="10" r="4"/><circle cx="30" cy="10" r="4"/><circle cx="10" cy="30" r="4"/><circle cx="30" cy="30" r="4"/><line x1="14" y1="10" x2="26" y2="10"/><line x1="10" y1="14" x2="10" y2="26"/><line x1="30" y1="14" x2="30" y2="26"/><line x1="14" y1="30" x2="26" y2="30"/></svg>
+        <h3>Panelización</h3>
+        <p>Agrupamos varias unidades en un solo panel cuando el volumen lo justifica.</p>
+      </div>
+      <div class="card">
+        <svg class="icon" viewBox="0 0 40 40" fill="none" stroke="currentColor" stroke-width="2"><rect x="8" y="6" width="24" height="28" rx="2"/><line x1="13" y1="13" x2="27" y2="13"/><line x1="13" y1="19" x2="27" y2="19"/><line x1="13" y1="25" x2="21" y2="25"/></svg>
+        <h3>Archivos de fabricación</h3>
+        <p>Gerbers, BOM, archivo de posición de componentes (pick and place) y documentación completa.</p>
+      </div>
+    </div>
+    <p style="font-size:13.5px; color:var(--muted); margin-top:20px;">Compatible con la mayoría de fabricantes de PCB, en Costa Rica y en el extranjero.</p>
+  </section>
+
+  <section id="calidad">
+    <div class="section-head">
+      <p class="eyebrow">03 — Control de calidad</p>
+      <h2>Verificación antes de la entrega</h2>
+      <p>Cada placa fabricada se revisa contra el diseño original antes de pasar a ensamblaje.</p>
+    </div>
+    <div class="taglist" style="display:flex; flex-wrap:wrap; gap:10px;">
+      <span class="tag">Inspección visual</span>
+      <span class="tag">Verificación dimensional</span>
+      <span class="tag">Prueba de continuidad</span>
+      <span class="tag">Revisión de serigrafía</span>
+      <span class="tag">Comparación contra Gerber</span>
+    </div>
+  </section>
+
+  <section id="proceso">
+    <div class="section-head">
+      <p class="eyebrow">04 — Cómo trabajamos</p>
+      <h2>Del esquemático a la placa fabricada</h2>
+      <p>Un flujo pensado para detectar errores antes de gastar en producción, no después.</p>
+    </div>
+    <div class="steps">
+      <div class="step">
+        <div class="num">01 — RUTEO</div>
+        <h3>Diseño de la placa</h3>
+        <p>Colocación de componentes y ruteo de capas.</p>
+      </div>
+      <div class="step">
+        <div class="num">02 — REVISIÓN</div>
+        <h3>Verificación DFM</h3>
+        <p>Revisión de reglas de diseño y compatibilidad con manufactura.</p>
+      </div>
+      <div class="step">
+        <div class="num">03 — FABRICACIÓN</div>
+        <h3>Envío a producción</h3>
+        <p>Archivos completos enviados al fabricante de tu elección.</p>
+      </div>
+      <div class="step">
+        <div class="num">04 — CONTROL</div>
+        <h3>Inspección final</h3>
+        <p>Verificación de la placa recibida contra el diseño original.</p>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<script src="footer.js"></script>
+</body>
+</html>

@@ -1,0 +1,252 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-CTLJPNHBLH"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-CTLJPNHBLH');
+</script>
+<meta charset="UTF-8">
+<link rel="icon" type="image/svg+xml" href="favicon.svg">
+<link rel="icon" type="image/png" sizes="32x32" href="favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="favicon-16x16.png">
+<link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon.png">
+<link rel="shortcut icon" href="favicon.ico">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Diseño de Fixtures de Prueba y Ensamblaje | Circuito, Santa Ana CR</title>
+<meta name="description" content="Diseñamos fixtures de prueba, jigs de ensamblaje y fixtures de calibración para agilizar tu línea de producción y reducir el error del operador. Santa Ana, Costa Rica.">
+<meta name="keywords" content="diseño de fixtures Costa Rica, fixture de prueba ICT, jig de ensamblaje, fixture funcional, manufactura electrónica Santa Ana">
+<meta name="author" content="Circuito">
+<meta name="robots" content="index, follow">
+<link rel="canonical" href="https://circuito.cr/fixturing-design.html">
+
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://circuito.cr/fixturing-design.html">
+<meta property="og:title" content="Diseño de Fixtures de Prueba y Ensamblaje | Circuito">
+<meta property="og:description" content="Fixtures de prueba, jigs de ensamblaje y fixtures de calibración para tu línea de producción. Santa Ana, Costa Rica.">
+<meta property="og:image" content="https://circuito.cr/og-image.jpg">
+<meta property="og:locale" content="es_CR">
+
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Diseño de Fixtures de Prueba y Ensamblaje | Circuito">
+<meta name="twitter:description" content="Fixtures de prueba, jigs de ensamblaje y fixtures de calibración para tu línea de producción.">
+<meta name="twitter:image" content="https://circuito.cr/og-image.jpg">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;700;800&family=IBM+Plex+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Service",
+  "serviceType": "Diseño de fixtures de prueba y ensamblaje",
+  "provider": {
+    "@type": "ElectronicsStore",
+    "name": "Circuito",
+    "telephone": "+506-6324-9284",
+    "email": "kees.hessels@gmail.com",
+    "address": {
+      "@type": "PostalAddress",
+      "streetAddress": "Santa Ana Centro, a par de la Pops, casa dos altos, portón negro",
+      "addressLocality": "Santa Ana",
+      "addressRegion": "San José",
+      "addressCountry": "CR"
+    }
+  },
+  "areaServed": {
+    "@type": "City",
+    "name": "Santa Ana, Costa Rica"
+  },
+  "description": "Diseño de fixtures de prueba (ICT, pogo-pin), jigs de ensamblaje y fixtures de calibración para líneas de producción electrónica."
+}
+</script>
+
+<style>
+  :root{
+    --bg:#11161a;
+    --panel:#171f24;
+    --line:#2a353c;
+    --copper:#c17a4a;
+    --copper-bright:#e6a468;
+    --green-bright:#49b98c;
+    --cream:#edeae0;
+    --muted:#8b98a0;
+    --amber:#e8a33d;
+    --mono: 'JetBrains Mono', monospace;
+    --sans: 'IBM Plex Sans', sans-serif;
+  }
+  *{box-sizing:border-box;}
+  html{scroll-behavior:smooth;}
+  @media (prefers-reduced-motion: reduce){
+    html{scroll-behavior:auto;}
+    *{animation-duration:0.001ms !important; animation-iteration-count:1 !important; transition-duration:0.001ms !important;}
+  }
+  body{
+    margin:0; background:var(--bg); color:var(--cream); font-family:var(--sans);
+    line-height:1.55; -webkit-font-smoothing:antialiased;
+  }
+  a{color:inherit;}
+  img,svg{display:block;max-width:100%;}
+  body::before{
+    content:""; position:fixed; inset:0;
+    background-image: radial-gradient(circle, rgba(139,152,160,0.10) 1px, transparent 1px);
+    background-size: 26px 26px; pointer-events:none; z-index:0;
+  }
+  .wrap{max-width:1120px; margin:0 auto; padding:0 28px; position:relative; z-index:1;}
+  .eyebrow{
+    font-family:var(--mono); font-size:12.5px; letter-spacing:0.14em; text-transform:uppercase;
+    color:var(--muted); display:flex; align-items:center; gap:10px;
+  }
+  .eyebrow::before{
+    content:""; width:7px; height:7px; border-radius:50%;
+    background:var(--amber); box-shadow:0 0 8px var(--amber); flex:none;
+  }
+
+  .hero{padding:72px 28px 80px;}
+  .hero h1{
+    font-family:var(--mono); font-weight:800; color:var(--copper-bright);
+    font-size:clamp(30px,5vw,50px); line-height:1.1; margin:20px 0 0; letter-spacing:-0.01em;
+  }
+  .hero p.lede{font-size:17px; color:var(--muted); max-width:600px; margin:22px 0 36px;}
+  .cta-row{display:flex; gap:16px; flex-wrap:wrap;}
+  .btn{
+    font-family:var(--mono); font-size:13.5px; letter-spacing:0.03em; padding:14px 22px;
+    text-decoration:none; display:inline-flex; align-items:center; gap:10px; border-radius:3px;
+    border:1px solid transparent; transition:transform .15s ease, background .15s ease;
+  }
+  .btn:focus-visible{outline:2px solid var(--amber); outline-offset:3px;}
+  .btn-copper{background:var(--copper); color:#241505; border-color:#d68d5e;}
+  .btn-copper:hover{background:#cf8a57; transform:translateY(-1px);}
+  .btn-ghost{background:transparent; color:var(--copper-bright); border-color:var(--copper);}
+  .btn-ghost:hover{background:rgba(193,122,74,0.12); transform:translateY(-1px);}
+
+  section{padding:80px 0; border-top:1px solid var(--line); scroll-margin-top:84px;}
+  .section-head{max-width:640px; margin-bottom:44px;}
+  .section-head h2{font-family:var(--mono); font-size:clamp(24px,3.4vw,34px); margin:14px 0 12px; font-weight:700;}
+  .section-head p{color:var(--muted); font-size:15.5px; margin:0;}
+
+  .grid{display:grid; grid-template-columns:repeat(auto-fit, minmax(230px,1fr)); gap:18px;}
+  .card{
+    background:var(--panel); border:1px solid var(--line); border-radius:6px; padding:26px 22px;
+    transition:transform .18s ease, border-color .18s ease;
+  }
+  .card:hover{transform:translateY(-3px); border-color:var(--copper-bright);}
+  .card .icon{width:36px; height:36px; margin-bottom:16px; color:var(--copper-bright);}
+  .card h3{font-family:var(--mono); font-size:16px; margin:0 0 8px; font-weight:600;}
+  .card p{font-size:14px; color:var(--muted); margin:0;}
+
+  .trust{display:grid; grid-template-columns:repeat(auto-fit,minmax(200px,1fr)); gap:24px;}
+  .trust .item{border-left:2px solid var(--amber); padding-left:16px;}
+  .trust .item b{display:block; font-family:var(--mono); font-size:15px; margin-bottom:4px;}
+  .trust .item span{font-size:13.5px; color:var(--muted);}
+
+  .steps{display:grid; grid-template-columns:repeat(auto-fit,minmax(220px,1fr)); gap:0;}
+  .step{padding:26px 22px 26px 0; border-right:1px solid var(--line);}
+  .step:last-child{border-right:none;}
+  .step .num{font-family:var(--mono); font-size:13px; color:var(--muted); letter-spacing:0.1em;}
+  .step h3{font-family:var(--mono); font-size:16px; margin:10px 0 8px;}
+  .step p{font-size:14px; color:var(--muted); margin:0;}
+  @media(max-width:760px){ .step{border-right:none; border-bottom:1px solid var(--line); padding:22px 0;} }
+</style>
+<link rel="stylesheet" href="site-shared.css">
+</head>
+<body data-page="fixturing">
+<script src="nav.js"></script>
+
+<main class="wrap">
+
+  <section class="hero" style="border-top:none; padding-top:56px;">
+    <p class="breadcrumb"><a href="index.html">Circuito</a> / Diseño de Fixtures</p>
+    <p class="eyebrow" style="margin-top:18px;">Capacidad de diseño — Santa Ana, Costa Rica</p>
+    <h1>Diseñamos los fixtures que agilizan tu línea de producción.</h1>
+    <p class="lede">Un buen fixture reduce el tiempo de prueba, elimina el error del operador y hace que cada unidad se pruebe exactamente igual. Diseñamos fixtures a la medida de tu placa o producto.</p>
+    <div class="cta-row">
+      <a class="btn btn-copper" href="https://wa.me/50663249284?text=Hola%2C%20quiero%20cotizar%20un%20fixture%20de%20prueba%20o%20ensamblaje." target="_blank" rel="noopener">Cotizar por WhatsApp →</a>
+      <a class="btn btn-ghost" href="contacto.html">Ver formulario</a>
+    </div>
+  </section>
+
+  <section id="tipos">
+    <div class="section-head">
+      <p class="eyebrow">01 — Tipos de fixtures</p>
+      <h2>El fixture correcto para cada etapa</h2>
+      <p>No es lo mismo probar una placa recién fabricada que ensamblar un producto en volumen — cada etapa necesita su propio fixture.</p>
+    </div>
+    <div class="grid">
+      <div class="card">
+        <svg class="icon" viewBox="0 0 40 40" fill="none" stroke="currentColor" stroke-width="2"><rect x="6" y="6" width="28" height="28" rx="2"/><circle cx="14" cy="14" r="2"/><circle cx="26" cy="14" r="2"/><circle cx="14" cy="26" r="2"/><circle cx="26" cy="26" r="2"/><circle cx="20" cy="20" r="2"/></svg>
+        <h3>Fixtures de prueba (ICT)</h3>
+        <p>Fixtures de lecho de agujas o pogo-pin para probar placas recién salidas de fabricación.</p>
+      </div>
+      <div class="card">
+        <svg class="icon" viewBox="0 0 40 40" fill="none" stroke="currentColor" stroke-width="2"><rect x="8" y="8" width="24" height="24" rx="3"/><path d="M14 20 L18 24 L26 14"/></svg>
+        <h3>Fixtures funcionales</h3>
+        <p>Verifican que el producto completo funcione como se espera, no solo que el circuito esté bien soldado.</p>
+      </div>
+      <div class="card">
+        <svg class="icon" viewBox="0 0 40 40" fill="none" stroke="currentColor" stroke-width="2"><rect x="7" y="12" width="26" height="16" rx="2"/><line x1="13" y1="12" x2="13" y2="7"/><line x1="27" y1="12" x2="27" y2="7"/><line x1="13" y1="28" x2="13" y2="33"/><line x1="27" y1="28" x2="27" y2="33"/></svg>
+        <h3>Jigs de ensamblaje</h3>
+        <p>Sostienen y alinean piezas durante el ensamblaje, para que cada unidad salga idéntica.</p>
+      </div>
+      <div class="card">
+        <svg class="icon" viewBox="0 0 40 40" fill="none" stroke="currentColor" stroke-width="2"><circle cx="20" cy="20" r="14"/><line x1="20" y1="9" x2="20" y2="13"/><line x1="20" y1="27" x2="20" y2="31"/><line x1="9" y1="20" x2="13" y2="20"/><line x1="27" y1="20" x2="31" y2="20"/></svg>
+        <h3>Fixtures de calibración</h3>
+        <p>Aseguran que cada sensor o instrumento se ajuste contra una referencia conocida antes de salir del taller.</p>
+      </div>
+    </div>
+  </section>
+
+  <section id="beneficios">
+    <div class="section-head">
+      <p class="eyebrow">02 — Por qué invertir en un fixture</p>
+      <h2>Menos tiempo por unidad, misma calidad en todas</h2>
+      <p>Un fixture bien diseñado se paga solo apenas el volumen de producción empieza a crecer.</p>
+    </div>
+    <div class="trust">
+      <div class="item"><b>Prueba más rápida</b><span>De minutos a segundos por unidad, según la complejidad del producto.</span></div>
+      <div class="item"><b>Menos error humano</b><span>El fixture guía al operador; hay menos margen para conectar algo mal.</span></div>
+      <div class="item"><b>Resultados repetibles</b><span>Cada unidad se prueba o ensambla exactamente de la misma forma.</span></div>
+      <div class="item"><b>Trazabilidad</b><span>Un fixture bien documentado facilita detectar de dónde viene una falla.</span></div>
+    </div>
+  </section>
+
+  <section id="proceso">
+    <div class="section-head">
+      <p class="eyebrow">03 — Cómo trabajamos</p>
+      <h2>Del producto al fixture terminado</h2>
+      <p>Diseñamos el fixture alrededor de tu placa o producto específico, no al revés.</p>
+    </div>
+    <div class="steps">
+      <div class="step">
+        <div class="num">01 — ANÁLISIS</div>
+        <h3>Qué hay que probar o ensamblar</h3>
+        <p>Revisamos la placa o producto y definimos los puntos de contacto necesarios.</p>
+      </div>
+      <div class="step">
+        <div class="num">02 — DISEÑO</div>
+        <h3>Mecánica y contactos</h3>
+        <p>Diseño del fixture: alineación, contactos eléctricos y ergonomía para el operador.</p>
+      </div>
+      <div class="step">
+        <div class="num">03 — CONSTRUCCIÓN</div>
+        <h3>Fixture físico</h3>
+        <p>Construimos el fixture, con piezas impresas en 3D o mecanizadas según el caso.</p>
+      </div>
+      <div class="step">
+        <div class="num">04 — VALIDACIÓN</div>
+        <h3>Prueba en línea</h3>
+        <p>Validamos el fixture con unidades reales antes de entregarlo para uso continuo.</p>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<script src="footer.js"></script>
+</body>
+</html>

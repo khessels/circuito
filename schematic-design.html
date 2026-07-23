@@ -1,0 +1,258 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-CTLJPNHBLH"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-CTLJPNHBLH');
+</script>
+<meta charset="UTF-8">
+<link rel="icon" type="image/svg+xml" href="favicon.svg">
+<link rel="icon" type="image/png" sizes="32x32" href="favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="favicon-16x16.png">
+<link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon.png">
+<link rel="shortcut icon" href="favicon.ico">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Diseño de Esquemáticos y Circuitos | Circuito, Santa Ana CR</title>
+<meta name="description" content="Diseño de esquemáticos electrónicos: selección de componentes, arquitectura de alimentación y validación antes de pasar a la placa. Santa Ana, Costa Rica.">
+<meta name="keywords" content="diseño de esquemáticos Costa Rica, diseño de circuitos electrónicos, selección de componentes, ingeniería electrónica Santa Ana">
+<meta name="author" content="Circuito">
+<meta name="robots" content="index, follow">
+<link rel="canonical" href="https://circuito.cr/schematic-design.html">
+
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://circuito.cr/schematic-design.html">
+<meta property="og:title" content="Diseño de Esquemáticos y Circuitos | Circuito">
+<meta property="og:description" content="Selección de componentes, arquitectura de alimentación y validación de diseño antes de pasar a la placa. Santa Ana, Costa Rica.">
+<meta property="og:image" content="https://circuito.cr/og-image.jpg">
+<meta property="og:locale" content="es_CR">
+
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Diseño de Esquemáticos y Circuitos | Circuito">
+<meta name="twitter:description" content="Selección de componentes, arquitectura de alimentación y validación de diseño antes de pasar a la placa.">
+<meta name="twitter:image" content="https://circuito.cr/og-image.jpg">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;700;800&family=IBM+Plex+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Service",
+  "serviceType": "Diseño de esquemáticos y circuitos electrónicos",
+  "provider": {
+    "@type": "ElectronicsStore",
+    "name": "Circuito",
+    "telephone": "+506-6324-9284",
+    "email": "kees.hessels@gmail.com",
+    "address": {
+      "@type": "PostalAddress",
+      "streetAddress": "Santa Ana Centro, a par de la Pops, casa dos altos, portón negro",
+      "addressLocality": "Santa Ana",
+      "addressRegion": "San José",
+      "addressCountry": "CR"
+    }
+  },
+  "areaServed": {
+    "@type": "City",
+    "name": "Santa Ana, Costa Rica"
+  },
+  "description": "Diseño de esquemáticos electrónicos, selección de componentes y validación de diseño antes de la fabricación de la placa."
+}
+</script>
+
+<style>
+  :root{
+    --bg:#11161a;
+    --panel:#171f24;
+    --line:#2a353c;
+    --copper:#c17a4a;
+    --copper-bright:#e6a468;
+    --green-bright:#49b98c;
+    --cream:#edeae0;
+    --muted:#8b98a0;
+    --amber:#e8a33d;
+    --mono: 'JetBrains Mono', monospace;
+    --sans: 'IBM Plex Sans', sans-serif;
+  }
+  *{box-sizing:border-box;}
+  html{scroll-behavior:smooth;}
+  @media (prefers-reduced-motion: reduce){
+    html{scroll-behavior:auto;}
+    *{animation-duration:0.001ms !important; animation-iteration-count:1 !important; transition-duration:0.001ms !important;}
+  }
+  body{
+    margin:0; background:var(--bg); color:var(--cream); font-family:var(--sans);
+    line-height:1.55; -webkit-font-smoothing:antialiased;
+  }
+  a{color:inherit;}
+  img,svg{display:block;max-width:100%;}
+  body::before{
+    content:""; position:fixed; inset:0;
+    background-image: radial-gradient(circle, rgba(139,152,160,0.10) 1px, transparent 1px);
+    background-size: 26px 26px; pointer-events:none; z-index:0;
+  }
+  .wrap{max-width:1120px; margin:0 auto; padding:0 28px; position:relative; z-index:1;}
+  .eyebrow{
+    font-family:var(--mono); font-size:12.5px; letter-spacing:0.14em; text-transform:uppercase;
+    color:var(--muted); display:flex; align-items:center; gap:10px;
+  }
+  .eyebrow::before{
+    content:""; width:7px; height:7px; border-radius:50%;
+    background:var(--amber); box-shadow:0 0 8px var(--amber); flex:none;
+  }
+
+  .hero{padding:72px 28px 80px;}
+  .hero h1{
+    font-family:var(--mono); font-weight:800; color:var(--copper-bright);
+    font-size:clamp(30px,5vw,50px); line-height:1.1; margin:20px 0 0; letter-spacing:-0.01em;
+  }
+  .hero p.lede{font-size:17px; color:var(--muted); max-width:600px; margin:22px 0 36px;}
+  .cta-row{display:flex; gap:16px; flex-wrap:wrap;}
+  .btn{
+    font-family:var(--mono); font-size:13.5px; letter-spacing:0.03em; padding:14px 22px;
+    text-decoration:none; display:inline-flex; align-items:center; gap:10px; border-radius:3px;
+    border:1px solid transparent; transition:transform .15s ease, background .15s ease;
+  }
+  .btn:focus-visible{outline:2px solid var(--amber); outline-offset:3px;}
+  .btn-copper{background:var(--copper); color:#241505; border-color:#d68d5e;}
+  .btn-copper:hover{background:#cf8a57; transform:translateY(-1px);}
+  .btn-ghost{background:transparent; color:var(--copper-bright); border-color:var(--copper);}
+  .btn-ghost:hover{background:rgba(193,122,74,0.12); transform:translateY(-1px);}
+
+  section{padding:80px 0; border-top:1px solid var(--line); scroll-margin-top:84px;}
+  .section-head{max-width:640px; margin-bottom:44px;}
+  .section-head h2{font-family:var(--mono); font-size:clamp(24px,3.4vw,34px); margin:14px 0 12px; font-weight:700;}
+  .section-head p{color:var(--muted); font-size:15.5px; margin:0;}
+
+  .grid{display:grid; grid-template-columns:repeat(auto-fit, minmax(230px,1fr)); gap:18px;}
+  .card{
+    background:var(--panel); border:1px solid var(--line); border-radius:6px; padding:26px 22px;
+    transition:transform .18s ease, border-color .18s ease;
+  }
+  .card:hover{transform:translateY(-3px); border-color:var(--copper-bright);}
+  .card .icon{width:36px; height:36px; margin-bottom:16px; color:var(--copper-bright);}
+  .card h3{font-family:var(--mono); font-size:16px; margin:0 0 8px; font-weight:600;}
+  .card p{font-size:14px; color:var(--muted); margin:0;}
+
+  .steps{display:grid; grid-template-columns:repeat(auto-fit,minmax(220px,1fr)); gap:0;}
+  .step{padding:26px 22px 26px 0; border-right:1px solid var(--line);}
+  .step:last-child{border-right:none;}
+  .step .num{font-family:var(--mono); font-size:13px; color:var(--muted); letter-spacing:0.1em;}
+  .step h3{font-family:var(--mono); font-size:16px; margin:10px 0 8px;}
+  .step p{font-size:14px; color:var(--muted); margin:0;}
+  @media(max-width:760px){ .step{border-right:none; border-bottom:1px solid var(--line); padding:22px 0;} }
+</style>
+<link rel="stylesheet" href="site-shared.css">
+</head>
+<body data-page="schematic">
+<script src="nav.js"></script>
+
+<main class="wrap">
+
+  <section class="hero" style="border-top:none; padding-top:56px;">
+    <p class="breadcrumb"><a href="index.html">Circuito</a> / Diseño de Esquemáticos</p>
+    <p class="eyebrow" style="margin-top:18px;">Capacidad de diseño — Santa Ana, Costa Rica</p>
+    <h1>El esquemático correcto evita rediseños costosos más adelante.</h1>
+    <p class="lede">Definimos la arquitectura eléctrica completa de tu producto — componentes, alimentación y protecciones — antes de que se convierta en una placa física.</p>
+    <div class="cta-row">
+      <a class="btn btn-copper" href="https://wa.me/50663249284?text=Hola%2C%20quiero%20cotizar%20un%20diseño%20de%20esquemático." target="_blank" rel="noopener">Cotizar por WhatsApp →</a>
+      <a class="btn btn-ghost" href="contacto.html">Ver formulario</a>
+    </div>
+  </section>
+
+  <section id="esquematico">
+    <div class="section-head">
+      <p class="eyebrow">01 — Esquemático</p>
+      <h2>De la idea a un diseño eléctrico completo</h2>
+      <p>Cada esquemático queda documentado y listo para que cualquier fabricante o colega ingeniero lo pueda leer.</p>
+    </div>
+    <div class="grid">
+      <div class="card">
+        <svg class="icon" viewBox="0 0 40 40" fill="none" stroke="currentColor" stroke-width="2"><circle cx="10" cy="10" r="4"/><circle cx="30" cy="10" r="4"/><circle cx="10" cy="30" r="4"/><circle cx="30" cy="30" r="4"/><line x1="14" y1="10" x2="26" y2="10"/><line x1="10" y1="14" x2="10" y2="26"/><line x1="30" y1="14" x2="30" y2="26"/><line x1="14" y1="30" x2="26" y2="30"/></svg>
+        <h3>Captura de esquemático</h3>
+        <p>Diseño eléctrico completo, con cada bloque funcional identificado y documentado.</p>
+      </div>
+      <div class="card">
+        <svg class="icon" viewBox="0 0 40 40" fill="none" stroke="currentColor" stroke-width="2"><rect x="9" y="9" width="22" height="22" rx="3"/><circle cx="20" cy="20" r="4"/><line x1="20" y1="9" x2="20" y2="13"/><line x1="20" y1="27" x2="20" y2="31"/><line x1="9" y1="20" x2="13" y2="20"/><line x1="27" y1="20" x2="31" y2="20"/></svg>
+        <h3>Selección de componentes</h3>
+        <p>Elegimos partes disponibles y con buen soporte de suministro, no solo la opción más barata.</p>
+      </div>
+      <div class="card">
+        <svg class="icon" viewBox="0 0 40 40" fill="none" stroke="currentColor" stroke-width="2"><rect x="6" y="10" width="28" height="20" rx="2"/><line x1="14" y1="30" x2="14" y2="34"/><line x1="26" y1="30" x2="26" y2="34"/><line x1="12" y1="16" x2="20" y2="16"/><line x1="12" y1="22" x2="24" y2="22"/></svg>
+        <h3>Alimentación</h3>
+        <p>Reguladores, baterías y gestión de energía, dimensionados para el consumo real del producto.</p>
+      </div>
+      <div class="card">
+        <svg class="icon" viewBox="0 0 40 40" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 4 L34 12 L34 28 L20 36 L6 28 L6 12 Z"/><line x1="20" y1="14" x2="20" y2="22"/><circle cx="20" cy="27" r="1" fill="currentColor" stroke="none"/></svg>
+        <h3>Protecciones</h3>
+        <p>Fusibles, TVS y protección contra polaridad inversa donde el diseño lo requiere.</p>
+      </div>
+    </div>
+  </section>
+
+  <section id="validacion">
+    <div class="section-head">
+      <p class="eyebrow">02 — Validación</p>
+      <h2>Revisamos antes de construir</h2>
+      <p>Un error detectado en el esquemático es barato de corregir; el mismo error en una placa ya fabricada, no.</p>
+    </div>
+    <div class="grid">
+      <div class="card">
+        <svg class="icon" viewBox="0 0 40 40" fill="none" stroke="currentColor" stroke-width="2"><path d="M8 20 L16 12 L16 16 L28 16 L28 24 L16 24 L16 28 Z"/></svg>
+        <h3>Revisión de diseño</h3>
+        <p>Verificamos tolerancias, disipación térmica y márgenes antes de aprobar el esquemático.</p>
+      </div>
+      <div class="card">
+        <svg class="icon" viewBox="0 0 40 40" fill="none" stroke="currentColor" stroke-width="2"><rect x="8" y="6" width="24" height="28" rx="2"/><line x1="13" y1="13" x2="27" y2="13"/><line x1="13" y1="19" x2="27" y2="19"/><line x1="13" y1="25" x2="21" y2="25"/></svg>
+        <h3>Documentación</h3>
+        <p>Lista de materiales (BOM) y notas de diseño entregadas junto con el esquemático.</p>
+      </div>
+      <div class="card">
+        <svg class="icon" viewBox="0 0 40 40" fill="none" stroke="currentColor" stroke-width="2"><circle cx="20" cy="20" r="14"/><path d="M20 12 L20 20 L26 24"/></svg>
+        <h3>Iteración</h3>
+        <p>Ajustamos el diseño con vos antes de avanzar al ruteo de la placa.</p>
+      </div>
+    </div>
+  </section>
+
+  <section id="proceso">
+    <div class="section-head">
+      <p class="eyebrow">03 — Cómo trabajamos</p>
+      <h2>Del brief al esquemático aprobado</h2>
+      <p>Un proceso corto pero riguroso, pensado para no atrasar el resto del proyecto.</p>
+    </div>
+    <div class="steps">
+      <div class="step">
+        <div class="num">01 — BRIEF</div>
+        <h3>Requisitos del circuito</h3>
+        <p>Qué debe hacer el producto, con qué alimentación y en qué entorno.</p>
+      </div>
+      <div class="step">
+        <div class="num">02 — DISEÑO</div>
+        <h3>Primer esquemático</h3>
+        <p>Arquitectura completa con componentes seleccionados.</p>
+      </div>
+      <div class="step">
+        <div class="num">03 — REVISIÓN</div>
+        <h3>Validación conjunta</h3>
+        <p>Revisamos el diseño juntos y ajustamos lo necesario.</p>
+      </div>
+      <div class="step">
+        <div class="num">04 — ENTREGA</div>
+        <h3>Esquemático final</h3>
+        <p>Listo para pasar a ruteo de PCB o para tu propio equipo de diseño.</p>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<script src="footer.js"></script>
+</body>
+</html>
